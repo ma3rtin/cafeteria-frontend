@@ -1,0 +1,38 @@
+<app-header></app-header>
+<p-toast />
+<section id="seccion-productos">
+    <div id="titulo">
+        <h1>Productos</h1>
+    </div>
+<div class="filtro-productos">
+    <a (click)="reiniciarProductos()" class="boton-filtro"><i class="fa-solid fa-rotate-left"></i></a>
+    <h2> Encontrá tus productos <i id="flecha" class="fa-solid fa-arrow-right"></i></h2>
+    <input type="text" placeholder="Buscá por nombre" (keyup)="obtenerProductosPorNombre($event)" />
+    <input type="text" placeholder="Buscá por descripción" (keyup)="obtenerProductosPorDescripcion($event)" />
+    <i class="fa-solid fa-grip-lines-vertical"></i>
+    
+    <form action="submit" (submit)="obtenerProductosPorRangoPrecio(precioMinimo, precioMaximo)"> 
+    <input type="text" id="precioMinimo" name="precioMinimo" placeholder="Precio minimo" [(ngModel)]="precioMinimo"  />
+    <input type="text"id="precioMaximo" name="precioMaximo" placeholder="Precio máximo"[(ngModel)]="precioMaximo"  />
+        <button type="submit" class="boton-filtro"><i class="fa-solid fa-magnifying-glass" ></i></button>
+    </form>
+
+
+</div>
+    <div class="productos">
+        <div class="tipoProductos">
+            @for (tipoProducto of tipoProductos; track $index) {
+            <a (click)="obtenerProductosPorTipoProducto(tipoProducto)"> {{tipoProducto}}</a>
+            <hr>
+            }
+        </div>
+        <ul class="lista-productos">
+            @for (producto of productos; track producto.id) {
+            <app-product-card [producto]="producto"></app-product-card>
+            }
+        </ul>
+    </div>
+</section>
+<div>
+    <app-footer></app-footer>
+</div>

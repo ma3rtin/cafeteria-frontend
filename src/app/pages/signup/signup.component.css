@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.singup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-image: url("../../../assets/images/register-background.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.form-container {
+  border-radius: 10px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  background-color: #eeeeee;
+}
+
+.form-title {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-container label {
+  display: block;
+  letter-spacing: 1.5px;
+  font-size: 1.5rem;
+  font-family: "Karantina", sans-serif;
+  color: #525252;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  color: black;
+}
+
+.form-group input:focus {
+  outline: none;
+  border: 2px solid #220a01;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  font-size: 2rem;
+  font-family: "Karantina", sans-serif;
+  letter-spacing: 1.5px;
+}
+
+.form-container button:disabled{
+  background-color: #59190260;
+  cursor: not-allowed;
+  color: rgb(119, 119, 119)
+}
+
+.error-message{
+  color: rgba(255, 0, 0, 0.507);
+  font-size: 1.6rem;
+  font-family: "Karantina", sans-serif;
+  text-align: center;
+}
+
+.login-link-container{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.login-link{
+  text-decoration: underline;
+  color: #525252;
+  font-size: 1.2rem;
+  font-family: "Karantina", sans-serif;
+  letter-spacing: 1.2px;
+}
+
+.login-link:hover{
+  color: #220a01;
+}

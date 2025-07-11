@@ -1,0 +1,40 @@
+<app-header></app-header>
+<p-toast />
+<div class="login-container">
+  <div class="form-container">
+    <h1>Iniciar Sesión</h1>
+
+    <form [formGroup]="form" (ngSubmit)="iniciarSesion()">
+      <div class="form-group">
+        <label for="email">EMAIL</label>
+        <input type="email" id="email" formControlName="email" />
+        @if( form.get('email')?.hasError('required') &&
+        form.get('email')?.touched ) {
+        <small class="text-danger">El email es requerido.</small>
+        } @if( form.get('email')?.hasError('email') &&
+        form.get('email')?.touched ) {
+        <small class="text-danger">Formato de email incorrecto.</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="contraseña">CONTRASEÑA</label>
+        <input type="password" id="contraseña" formControlName="contraseña" />
+        @if( form.get('contraseña')?.hasError('required') &&
+        form.get('contraseña')?.touched ) {
+        <small class="text-danger">La contraseña es requerida.</small>
+        }
+      </div>
+
+      <button type="submit" [disabled]="form.invalid">ENVIAR</button>
+    </form>
+
+    <div class="login-link-container">
+      <a class="login-link" routerLink="/signup">REGISTRARSE</a>
+    </div>
+    <div class="login-link-container">
+      <a class="login-link" routerLink="/recuperar">OLVIDÉ MI CONTRASEÑA</a>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

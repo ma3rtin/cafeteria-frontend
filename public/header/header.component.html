@@ -1,0 +1,77 @@
+<header>
+  <nav [class]="{ 'nav-transparente': transparente }">
+    <a (click)="irHacia('/home')">
+      <h1>
+        Café
+        <div id="teria">Teria</div>
+      </h1>
+    </a>
+
+    @if(estaLogueado) { @if(userService.EsAdmin()){
+    <ul>
+      <li>
+        <a (click)="irHacia('/admin/productos')">Administrar productos</a>
+      </li>
+
+      <li>
+        <a (click)="irHacia('/productos')"
+          ><i class="fa-solid fa-boxes-stacked"></i> Productos</a
+        >
+      </li>
+      <li>
+        <a (click)="cerrarSesion()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Cerrar sesión
+        </a>
+      </li>
+      <li>
+        <a (click)="irHacia('/login')"><i class="fa-solid fa-user"></i></a>
+      </li>
+    </ul>
+    }@else{
+    <ul>
+      <li>
+        <a (click)="irHacia('/productos')"
+          ><i class="fa-solid fa-boxes-stacked"></i> Productos</a
+        >
+      </li>
+
+      <li>
+        <a (click)="irHacia('/carrito')"
+          ><i class="fa-solid fa-cart-shopping"></i
+        ></a>
+      </li>
+
+      <li>
+        <a (click)="cerrarSesion()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Cerrar sesión
+        </a>
+      </li>
+      <li>
+        <a (click)="irHacia('/login')"><i class="fa-solid fa-user"></i></a>
+      </li>
+    </ul>
+    } }@else{
+    <ul>
+      <li>
+        <a (click)="irHacia('/productos')">
+          <i class="fa-solid fa-boxes-stacked"></i> Productos</a
+        >
+      </li>
+      <li>
+        <a (click)="irHacia('/login')">
+          <i class="fa-solid fa-user"></i> Ingresar</a
+        >
+      </li>
+
+      <li>
+        <a (click)="irHacia('/signup')">
+          <i class="fa-solid fa-user-plus"></i>
+          Registrarse
+        </a>
+      </li>
+    </ul>
+    }
+  </nav>
+</header>

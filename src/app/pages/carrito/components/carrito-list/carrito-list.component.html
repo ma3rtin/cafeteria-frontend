@@ -1,0 +1,71 @@
+<p-toast></p-toast>
+
+<div class="container-main">
+  <h1 class="title-main">Carrito</h1>
+
+  @if(spinner) {
+  <div class="spinner-wrapper">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+  }
+  @else if(!spinner && productos && productos.length === 0) {
+  <p class="empty-message">No hay productos en el carrito.</p>
+  }
+  @else {
+  <div class="content-flex-container">
+
+    <div class="main-content">
+      <table class="table-main">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Imagen</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Subtotal</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(item of productos ; track item.id_item){
+          <tr>
+            <td>{{ item.nombre }}</td>
+            <td>
+              <img src="{{ item.imagen }}" alt="{{ item.nombre }}" class="img-item" />
+            </td>
+            <td>{{ item.cantidad }}</td>
+            <td>${{ item.precio }}</td>
+            <td>${{ item.precio * item.cantidad }}</td>
+            <td>
+              <button class="p-button-rounded button-danger p-button-sm button-delete"
+                (click)="eliminarProducto(item.id_item)" aria-label="Eliminar producto" title="Eliminar producto">
+                <i class="pi pi-trash"></i>
+              </button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sidebar-content">
+      <div class="card-sidebar">
+        <h2 class="sidebar-title">Resumen de Compra</h2>
+        <div class="total-main mb-3">Total: ${{ total }}</div>
+        <div class="botones-resumen">
+          <button class="button-primary w-full mb-2 button-comprar" aria-label="Finalizar Compra"
+            title="Finalizar Compra">
+            Finalizar Compra
+          </button>
+
+          <button class="button-danger w-full button-vaciar" (click)="vaciarCarrito()" aria-label="Vaciar Carrito"
+            title="Vaciar Carrito">
+            Vaciar Carrito
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  }
+</div>

@@ -1,0 +1,72 @@
+<app-header></app-header>
+<p-toast></p-toast>
+
+<div class="container-main">
+    <h1 class="title-main">Productos</h1>
+    
+    <div style="text-align: right; margin-bottom: 1rem;">
+        <button class="button-primary" (click)="crearProducto()">
+            <i class="pi pi-plus" style="margin-right: 0.5rem;"></i> Agregar Producto
+        </button>
+    </div>
+
+    @if(spinner) {
+    <div class="spinner-wrapper">
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+    }
+
+    @else if(!spinner && productos && productos.length === 0) {
+    <p class="empty-message">No hay productos disponibles.</p>
+    }
+
+    @else {
+    <div class="content-flex-container">
+
+        <div class="main-content">
+            <table class="table-main">
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(producto of productos ; track producto.id){
+                    <tr>
+                        <td>
+                            <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}" class="img-producto-small" />
+                        </td>
+                        <td>{{ producto.nombre }}</td>
+                        <td>${{ producto.precio }}</td>
+                        <td>{{ producto.stock }}</td>
+                        <td>
+                            <button class="btn-icon btn-edit" (click)="editarProducto(producto.id)" title="Editar">
+                                <i class="pi pi-pencil"></i>
+                            </button>
+
+                            <button class="btn-icon btn-view" (click)="irAVerDetalleProducto(producto.id)"
+                                title="Ver Detalle">
+                                <i class="pi pi-eye"></i>
+                            </button>
+
+                            <button class="btn-icon btn-delete" (click)="eliminarProducto(producto.id)"
+                                title="Eliminar">
+                                <i class="pi pi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+    }
+</div>
+
+<app-footer></app-footer>

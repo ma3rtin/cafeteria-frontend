@@ -1,0 +1,153 @@
+nav {
+    background-color: #59190200 !important;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    font-size: 3rem;
+    padding: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+
+}
+
+p,
+a,
+button {
+    font-family: "Karantina", sans-serif;
+    font-weight: 100;
+    font-style: light;
+}
+
+.header-container {
+    color: white;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* Ajusta este valor según lo que quieras */
+    overflow: hidden;
+
+}
+
+.header-container a {
+    text-decoration: none;
+    color: white;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.7rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 1rem;
+}
+
+#imagen_hero {
+    position: absolute;
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#texto-hero {
+    position: absolute;
+    top: 60%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    gap: 1rem;
+}
+
+#texto-hero h2 {
+    font-size: 3.2rem;
+}
+
+#texto-hero p {
+    font-size: 2.2rem;
+}
+
+#texto-hero button {
+        border-radius: 15px;
+        width: 300px;
+    margin-top: 1rem;
+    font-size: 2rem;
+}
+
+#texto-hero button:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
+    ;
+}
+video{
+    width: 400px;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+#quienes_somos h2 {
+    color: white;
+}
+
+#quienes_somos {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40%;
+    gap: 2rem;
+}
+
+#quienes_somos h2 {
+    color: black;
+}
+
+.quienes_somos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.quienes_somos-container p {
+        vertical-align: middle;
+
+    font-size: 2rem;
+}
+
+#quienes_somos button {
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 2rem;
+    border-radius: 15px;
+    width: 300px;
+}
+.resaltado{
+    color: #591902;
+    font-weight: bold;
+}

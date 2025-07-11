@@ -1,0 +1,81 @@
+<app-header></app-header>
+<p-toast />
+<div class="singup-container">
+  <div class="form-container">
+    <h1 class="form-title">Registrate</h1>
+    <form [formGroup]="form" (ngSubmit)="registrarse()">
+      <div class="form-group">
+        <label for="nombre">NOMBRE</label>
+        <input id="nombre" formControlName="nombre" type="text" />
+        @if( form.get('nombre')?.hasError('required') &&
+        form.get('nombre')?.touched ) {
+        <small class="error-message">El nombre es obligatorio.</small>
+        }
+      </div>
+      <div class="form-group">
+        <label for="apellido">APELLIDO</label>
+        <input id="apellido" formControlName="apellido" type="text" />
+        @if( form.get('apellido')?.hasError('required') &&
+        form.get('apellido')?.touched ) {
+        <small class="error-message">El apellido es obligatorio.</small>
+        }
+      </div>
+      <div class="form-group">
+        <label for="email">EMAIL</label>
+        <input id="email" formControlName="email" type="email" />
+        @if( form.get('email')?.hasError('required') &&
+        form.get('email')?.touched ) {
+        <small class="error-message">El email es obligatorio.</small>
+        } @if( form.get('email')?.hasError('email') &&
+        form.get('email')?.touched ) {
+        <small class="error-message">Formato incorrecto de email.</small>
+        }
+      </div>
+      <div class="form-group">
+        <label for="contraseña">CONTRASEÑA</label>
+        <input id="contraseña" formControlName="contraseña" type="password" />
+        @if( form.get('contraseña')?.hasError('required') &&
+        form.get('contraseña')?.touched ) {
+        <small class="error-message">La contraseña es obligatoria.</small>
+        } @else if( form.get('contraseña')?.hasError('pattern') &&
+        form.get('contraseña')?.touched ) {
+        <small class="error-message">
+          La contraseña debe tener al menos 6 caracteres y al menos una letra
+          mayúscula.
+        </small>
+        }
+      </div>
+      <div class="form-group">
+        <label for="confirmarContraseña">CONFIRMAR CONTRASEÑA</label>
+        <input
+          id="confirmarContraseña"
+          formControlName="confirmarContraseña"
+          type="password"
+        />
+        @if( form.get('confirmarContraseña')?.hasError('required') &&
+        form.get('confirmarContraseña')?.touched ) {
+        <small class="error-message">
+          La confirmación de la contraseña es obligatoria.
+        </small>
+        } @else if( form.get('confirmarContraseña')?.value !==
+        form.get('contraseña')?.value &&
+        form.get('confirmarContraseña')?.touched ) {
+        <small class="error-message">Las contraseñas no coinciden.</small>
+        }
+        <div class="form-group">
+          <label for="direccion">DIRECCIÓN</label>
+          <input id="direccion" formControlName="direccion" type="text" />
+          @if( form.get('direccion')?.hasError('required') &&
+          form.get('direccion')?.touched ) {
+          <small class="error-message">La dirección es obligatoria.</small>
+          }
+        </div>
+      </div>
+      <button type="submit" [disabled]="form.invalid">ENVIAR</button>
+    </form>
+    <div class="login-link-container">
+      <a class="login-link" routerLink="/login">YA TENGO CUENTA</a>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

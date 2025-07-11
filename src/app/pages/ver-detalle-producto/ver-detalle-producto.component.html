@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="contenedor-producto">
+    @if (producto) {
+    <div class="detalle-producto">
+        <div class="datos-producto">
+            <img [src]="producto.imagen" alt="">
+
+        </div>
+
+    </div>
+    <div class="tarjeta-producto">
+            <h1>{{producto.nombre}}</h1>
+            <p class="precio">{{producto.precio | currency}}ARS</p>
+                    <p id="descripcion">
+            {{producto.descripcion}}</p>
+        <p>Stock: {{producto.stock}}</p>
+        <button (click)="agregarProducto(producto)">Agregar al carrito</button>
+    </div>
+    }
+</div>
+<app-footer></app-footer>

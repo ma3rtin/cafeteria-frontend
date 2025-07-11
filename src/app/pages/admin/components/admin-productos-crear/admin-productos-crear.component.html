@@ -1,0 +1,73 @@
+<app-header></app-header>
+<div class="form-container">
+    <h2>Crear Producto</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+            <label for="nombre">NOMBRE</label>
+            <input type="text" id="nombre" formControlName="nombre" />
+            @if( form.get('nombre')?.invalid && form.get('nombre')?.touched ) {
+            <small class="text-danger">El nombre es requerido.</small>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion">DESCRIPCIÓN</label>
+            <textarea id="descripcion" formControlName="descripcion"></textarea>
+            @if( form.get('descripcion')?.invalid && form.get('descripcion')?.touched ) {
+            <small class="text-danger">La descripción es requerida.</small>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="precio">PRECIO</label>
+            <input type="number" id="precio" formControlName="precio" />
+            @if( form.get('precio')?.invalid && form.get('precio')?.touched ) {
+            <small class="text-danger">El precio debe ser un número mayor o igual a 0.</small>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="stock">STOCK</label>
+            <input type="number" id="stock" formControlName="stock" />
+            @if( form.get('stock')?.invalid && form.get('stock')?.touched ) {
+            <small class="text-danger">El stock debe ser un número mayor o igual a 0.</small>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="imagen">URL DE LA IMAGEN</label>
+            <input type="text" id="imagen" formControlName="imagen" />
+            @if( form.get('imagen')?.invalid && form.get('imagen')?.touched ) {
+            <small class="text-danger">La URL de la imagen es requerida.</small>
+            }
+        </div>
+        
+        <div class="form-group">
+            <label for="clasificacion">CLASIFICACIÓN</label>
+            <input type="text" id="clasificacion" formControlName="clasificacion" />
+            @if( form.get('clasificacion')?.invalid && form.get('clasificacion')?.touched ) {
+            <small class="text-danger">La clasificación es requerida.</small>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="tipoProducto">TIPO DE PRODUCTO</label>
+            <select id="tipoProducto" formControlName="tipoProducto">
+                @for (tipoProducto of tipoProductos; track $index) {
+                <option value="{{ tipoProducto.id }}">{{ tipoProducto.nombre }}</option>
+                }
+            </select>
+            @if (form.get('tipoProducto')?.invalid && form.get('tipoProducto')?.touched) {
+            <small class="text-danger">El tipo producto es requerido.</small>
+            }
+        </div>
+
+
+        <button clas="button-primary" type="submit" [disabled]="form.invalid">Crear Producto</button>
+        <button type="button" (click)="cancelar()">Cancelar</button>
+    </form>
+</div>
+
+<app-footer></app-footer>

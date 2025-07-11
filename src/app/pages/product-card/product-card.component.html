@@ -1,0 +1,10 @@
+<div class="producto">
+    <a (click)="irAVerDetalleProducto(producto.id)">
+        <img [src]="producto.imagen" alt="">
+    </a>
+    <div class="datos-producto">
+        <p>{{ producto.nombre }}</p>
+        <p class="precio"> {{ producto.precio | currency: 'ARS' }}</p>
+        <button (click)="agregarProducto(producto)">Agregar al carrito</button>
+    </div>
+</div>
