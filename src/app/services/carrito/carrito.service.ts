@@ -10,7 +10,7 @@ import { Observable, of } from 'rxjs';
 export class CarritoService {
   constructor() {}
 
-  private apiUrl = 'http://localhost:3000/api/usuario';
+  private apiUrl = 'https://cafeteria-backend-fv1z.onrender.com/api/usuario';
   http = inject(HttpClient);
 
   agregarProductoAlCarrito(producto: Producto): Observable<any> {

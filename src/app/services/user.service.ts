@@ -11,7 +11,7 @@ import { RecuperarContrasena } from './../pages/recuperar-contrasena/interfaces/
   providedIn: 'root',
 })
 export class UserService {
-  private _url = 'http://localhost:3000/api/usuario';
+  private _url = 'https://cafeteria-backend-fv1z.onrender.com/api/usuario';
 
   http = inject(HttpClient);
   constructor() { }
