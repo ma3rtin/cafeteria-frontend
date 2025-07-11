@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.2.12",
-    "@angular/cli": "^19.2.12",
+    "@angular/cli": "^19.2.15",
     "@angular/compiler-cli": "^19.2.0",
     "@types/bonjour": "^3.5.13",
     "@types/cors": "^2.8.19",
